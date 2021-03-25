@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+import store from 'src/store';
 import { SettingsProvider } from 'src/contexts/SettingsContext';
 
 ReactDOM.render(
-  <SettingsProvider>
-    <App />
-  </SettingsProvider>,
+  <Provider store={store}>
+    <SettingsProvider>
+      <App />
+    </SettingsProvider>
+  </Provider>,
+
   document.getElementById('root')
 );
 
