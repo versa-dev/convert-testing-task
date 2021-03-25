@@ -1,12 +1,15 @@
 import React from 'react';
 import type { FC } from 'react';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import {
   ThemeProvider
 } from '@material-ui/core';
 import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
+import routes, { renderRoutes } from 'src/routes';
 
-import {Box, Typography} from '@material-ui/core'
+const history = createBrowserHistory();
 
 const App: FC = () => {
   const { settings } = useSettings();
@@ -19,11 +22,9 @@ const App: FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        <Typography>
-          Hello
-        </Typography>
-      </Box>
+      <Router history={history}>
+        {renderRoutes(routes)}
+      </Router>
     </ThemeProvider>
   );
 };
