@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 export default {
   h1: {
     fontWeight: 500,

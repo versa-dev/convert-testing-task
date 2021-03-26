@@ -1,10 +1,14 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import type { FC, ReactNode } from 'react';
 import { useLocation, matchPath } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {
   Box,
+  Divider,
   Drawer,
   Hidden,
   List,
@@ -74,13 +78,13 @@ function renderNavItems({
 
 function reduceChildRoutes({
   acc,
-  item,
   pathname,
+  item,
   depth
 }: {
   acc: any[];
-  item: Item;
   pathname: string;
+  item: Item;
   depth: number;
 }) {
   const key = item.title + depth;

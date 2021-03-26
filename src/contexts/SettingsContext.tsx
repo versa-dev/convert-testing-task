@@ -1,8 +1,10 @@
 import React, {
   createContext,
+  useEffect,
   useState
 } from 'react';
 import type { FC, ReactNode } from 'react';
+import _ from 'lodash';
 import { THEMES } from 'src/constants';
 
 interface Settings {
@@ -58,8 +60,23 @@ export const SettingsProvider: FC<SettingsProviderProps> = ({ settings, children
   const [currentSettings, setCurrentSettings] = useState<Settings>(settings || defaultSettings);
 
   const handleSaveSettings = (update: Settings = {}): void => {
-    setCurrentSettings(update);
+    const mergedSettings = _.merge({}, currentSettings, update);
+
+    setCurrentSettings(mergedSettings);
+    storeSettings(mergedSettings);
   };
+
+  useEffect(() => {
+    const restoredSettings = restoreSettings();
+
+    if (restoredSettings) {
+      setCurrentSettings(restoredSettings);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.dir = currentSettings.direction;
+  }, [currentSettings]);
 
   return (
     <SettingsContext.Provider
