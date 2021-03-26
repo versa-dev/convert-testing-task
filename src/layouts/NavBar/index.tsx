@@ -3,12 +3,10 @@
 import React, { useEffect } from 'react';
 import type { FC, ReactNode } from 'react';
 import { useLocation, matchPath } from 'react-router-dom';
-import { Link as RouterLink } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import {
   Box,
-  Divider,
   Drawer,
   Hidden,
   List,

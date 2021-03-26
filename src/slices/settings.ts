@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import _ from 'lodash';
 import type { AppThunk } from 'src/store'
 import type { Setting } from 'src/types/settings'
 import axios from 'src/utils/axios';

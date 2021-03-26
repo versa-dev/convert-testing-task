@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import type { Theme } from 'src/theme';
 import Page from 'src/components/Page';
-import { useDispatch, useSelector } from 'src/store';
+import { useSelector } from 'src/store';
 import Header from './Header';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -35,6 +35,7 @@ const Convert: FC = () => {
 
   useEffect(() => {
     setOutput(input / setting.rate);
+    // eslint-disable-next-line
   }, [input])
 
   return (
